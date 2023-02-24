@@ -5,4 +5,4 @@ streamlit==1.12.0
 streamlit-authenticator==0.1.5
 deta==1.1.0
 python-dotenv==0.21.0
-pandas==1.4.3
+pandas==1.3.5
