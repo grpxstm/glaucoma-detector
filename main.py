@@ -88,7 +88,10 @@ if authentication_status == True:
         img_reshape = image[np.newaxis,...]
         prediction = model.predict(img_reshape)
         return prediction
-    model = tf.keras.models.load_model('my_model2.h5')
+    model.save("model.h5")
+    model = load_model('model.h5')
+    
+    #model = tf.keras.models.load_model('my_model2.h5')
     st.write("""
          # ***Glaucoma detector***
          """
