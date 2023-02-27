@@ -1,4 +1,5 @@
 
+from keras.models import load_model
 
 import streamlit as st
 import tensorflow as tf
@@ -89,7 +90,7 @@ if authentication_status == True:
         prediction = model.predict(img_reshape)
         return prediction
     model = load_model('my_model2.h5')
-    
+
     #model = tf.keras.models.load_model('my_model2.h5')
     st.write("""
          # ***Glaucoma detector***
