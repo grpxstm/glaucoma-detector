@@ -73,7 +73,6 @@ if authentication_status == None:
     st.warning("please enter your username and password")
 if authentication_status == True:
     st.sidebar.header("welcome",name)
-
     st.set_option('deprecation.showfileUploaderEncoding', False)
     def import_and_predict(image_data, model):
         image = ImageOps.fit(image_data, (100,100),Image.ANTIALIAS)
@@ -84,7 +83,6 @@ if authentication_status == True:
         img_reshape = image[np.newaxis,...]
         prediction = model.predict(img_reshape)
         return prediction
-
     model = tf.keras.models.load_model('my_model2.h5')
     st.write("""
          # ***Glaucoma detector***
