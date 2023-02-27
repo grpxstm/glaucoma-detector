@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 load_dotenv(".env")
 DETA_KEY = "d0uykfhmbwh_bA8MJRAaQNc94fALykvCe7Mqm57ZTHD2" 
 deta = Deta(DETA_KEY)
-dbs = deta.Base("users_db")
+db = deta.Base("users_db")
 def insert_user(username, name, password):
 	return db.put({"key": username, "name":name, "password": password})
 
