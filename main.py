@@ -10,6 +10,7 @@ import streamlit_authenticator as stauth
 
 from tensorflow import keras
 from tensorflow.keras.models import Sequential
+from keras.models import load_model
 
 
 import database as db
