@@ -88,7 +88,6 @@ if authentication_status == True:
         img_reshape = image[np.newaxis,...]
         prediction = model.predict(img_reshape)
         return prediction
-    model.save("my_model2.h5")
     model = load_model('my_model2.h5')
     
     #model = tf.keras.models.load_model('my_model2.h5')
