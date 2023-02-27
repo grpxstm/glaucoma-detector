@@ -1,5 +1,4 @@
 import os
-import database as db
 from deta import Deta 
 from dotenv import load_dotenv
 load_dotenv(".env")
@@ -9,7 +8,6 @@ dbs = deta.Base("users_db")
 def insert_user(username, name, password):
 	return db.put({"key": username, "name":name, "password": password})
 
-insert_user("Rishwin", "rishwin r kanth", "rishwin123")
 
 def fetch_all_users():
 	res = db.fetch()
