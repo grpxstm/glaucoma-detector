@@ -116,3 +116,4 @@ else:
                  ## **Prediction:** You are affected by Glaucoma. Please consult an ophthalmologist as soon as possible.
                  """)
 
+st.write(st.session_state['value'])
