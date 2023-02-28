@@ -1,18 +1,8 @@
-
-from keras.models import load_model
-
 import streamlit as st
 import tensorflow as tf
 from PIL import Image, ImageOps
 import numpy as np
 import streamlit_authenticator as stauth
-
-
-from tensorflow import keras
-from tensorflow.keras.models import Sequential
-from keras.models import load_model
-
-
 import database as db
 
 users = db.fetch_all_users()
@@ -90,7 +80,7 @@ if authentication_status == True:
         img_reshape = image[np.newaxis,...]
         prediction = model.predict(img_reshape)
         return prediction
-    #@st.cache(suppress_st_warning=True,allow_output_mutation=True)
+   #@st.cache(suppress_st_warning=True,allow_output_mutation=True)
 @st.cache
 def load_model():
     model = tf.keras.models.load_model('my_model2.h5')
