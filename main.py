@@ -74,11 +74,11 @@ if authentication_status == True:
         def import_and_predict(image_data, model):
                  image = ImageOps.fit(image_data, (100,100),Image.ANTIALIAS)
                  image = image.convert('RGB')
-                  image = np.asarray(image)
-                  st.image(image, channels='RGB')
-                  image = (image.astype(np.float32) / 255.0)
-                  img_reshape = image[np.newaxis,...]
-                  prediction = model.predict(img_reshape)
+                 image = np.asarray(image)
+                 st.image(image, channels='RGB')
+                 image = (image.astype(np.float32) / 255.0)
+                 img_reshape = image[np.newaxis,...]
+                 prediction = model.predict(img_reshape)
                  return prediction
                  #@st.cache(suppress_st_warning=True,allow_output_mutation=True)
         @st.cache
