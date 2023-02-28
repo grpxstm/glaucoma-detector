@@ -99,19 +99,19 @@ if authentication_status == True:
                  imageI = Image.open(file)
                  prediction = import_and_predict(imageI, model)
                  pred = prediction[0][0]
-                if(pred > 0.5):
+                 if(pred > 0.5):
                          st.write(
                           """
                            # **Prediction:** You eye is Healthy. Great!!
                                """)
-                  if(pred < 0.3):
+                 if(pred < 0.3):
                          st.write("""
                            ## **Prediction:** You are severely affected by Glaucoma."""
                            )
 
         
 
-                   else:
+                  else:
                       st.write("""
                               ## **Prediction:** You are affected by Glaucoma. Please consult an ophthalmologist as soon as possible.
                              """)
