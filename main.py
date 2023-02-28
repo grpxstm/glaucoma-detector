@@ -97,15 +97,15 @@ def load_model():
     return model
 
 model = load_model()
-    st.write("""
+st.write("""
          # ***Glaucoma detector***
          """
          )
-    st.write("This is a simple image classification web app to predict glaucoma through fundus image of eye")
-    file = st.file_uploader("Please upload an image(jpg) file", type=["jpg"])
-    if file is None:
+st.write("This is a simple image classification web app to predict glaucoma through fundus image of eye")
+file = st.file_uploader("Please upload an image(jpg) file", type=["jpg"])
+if file is None:
         st.text("You haven't uploaded a jpg image file")
-    else:
+else:
         imageI = Image.open(file)
         prediction = import_and_predict(imageI, model)
         pred = prediction[0][0]
