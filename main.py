@@ -11,39 +11,15 @@ names = [user["name"]for user in users]
 hashed_passwords = [user["password"]for user in users]
 
 #test
-#credentials = {
-  #      "usernames":{
-#            "rishwin":{
-  #              "name":"rishwin r kanth",
-  #              "password":"$2b$12$uQkEYgDG4Wa46R8K5smYA.iWnMg.Hedx2WSM7UFqYYEnLSx3R57cW"
- #               },
+credentials = {
+        "usernames":{
+            "rishwin":{
+                "name":"rishwin r kanth",
+                "password":"$2b$12$uQkEYgDG4Wa46R8K5smYA.iWnMg.Hedx2WSM7UFqYYEnLSx3R57cW"
+                },
             
- #           }
-   #     }
-
-
-    # my class function which makes a call to a database and returns a list of lists (nested list), of usernames, names, and passwords
-    users = usr.get_all_users_credentials()
-    # the code mentioned above
-    usernames = [user[1] for user in users]
-    names = [user[2] for user in users]
-    passwords = [user[3] for user in users]
-
-    credentials = {"usernames":{}}
-
-    for(username,name,hash_password) in zip(usernames, names, hashed_passwords):
-        user_dict = {"name":name,"password":pw}
-        credentials["usernames"].update({un:user_dict})
-
-    authenticator = stauth.Authenticate(credentials, "app_home", "auth", cookie_expiry_days=30)
-
-    name, authentication_status, username = authenticator.login("Login", "main")
-
-    if authentication_status == True:
-        authenticator.logout("logout","main")
-
-
-
+            }
+        }
 
 
 
