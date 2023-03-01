@@ -21,8 +21,7 @@ hashed_passwords = [user["password"]for user in users]
  #           }
    #     }
 credentials = {"usernames":{}}
-
-for un, name, pw in zip(usernames, names, passwords):
+for(username,name,hash_password) in zip(usernames, names, hashed_passwords):
     user_dict = {"name":name,"password":pw}
     credentials["usernames"].update({un:user_dict})
 
