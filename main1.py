@@ -11,23 +11,32 @@ usernames = [user["key"] for user in users]
 names = [user["name"] for user in users]
 hashed_passwords = [user["password"] for user in users]
 
-authenticator = stauth.Authenticate(names, usernames, hashed_passwords,
-    "sales_dashboard", "abcdef", cookie_expiry_days=30)
+
+authenticator = stauth.Authenticate(credentials, "app_home", "authw", cookie_expiry_days=0)
+
+
 
 name, authentication_status, username = authenticator.login("Login", "main")
-
 if authentication_status == False:
-    st.error("Username/password is incorrect")
+    st.error("username/password is incorrect TRY AGAIN")
 
 if authentication_status == None:
-    st.warning("Please enter your username and password")
-
-if authentication_status:
-    placeholder.empty()
-    # ---- SIDEBAR ----
-    authenticator.logout("Logout", "sidebar")
-    st.sidebar.title(f"Welcome {name}")    
-    
+    st.warning("please enter your username and password")
+if authentication_status == True:
+        st.sidebar.header("welcome",name)
+        st.set_option('deprecation.showfileUploaderEncoding', False)
+        def import_and_predict(image_data, model):
+                 image = ImageOps.fit(image_data, (100,100),Image.ANTIALIAS)
+                 image = image.convert('RGB')
+                 image = np.asarray(image)
+                 st.image(image, channels='RGB')
+                 image = (image.astype(np.float32) / 255.0)
+                 img_reshape = image[np.newaxis,...]
+                 prediction = model.predict(img_reshape)
+                 return prediction
+                 #@st.cache(suppress_st_warning=True,allow_output_mutation=True)
+        @st.cache
+        
     
     
     
@@ -69,29 +78,6 @@ add_bg_from_url()
 
 
 
-authenticator = stauth.Authenticate(credentials, "app_home", "authw", cookie_expiry_days=0)
-
-
-name, authentication_status, username = authenticator.login("Login", "main")
-if authentication_status == False:
-    st.error("username/password is incorrect TRY AGAIN")
-
-if authentication_status == None:
-    st.warning("please enter your username and password")
-if authentication_status == True:
-        st.sidebar.header("welcome",name)
-        st.set_option('deprecation.showfileUploaderEncoding', False)
-        def import_and_predict(image_data, model):
-                 image = ImageOps.fit(image_data, (100,100),Image.ANTIALIAS)
-                 image = image.convert('RGB')
-                 image = np.asarray(image)
-                 st.image(image, channels='RGB')
-                 image = (image.astype(np.float32) / 255.0)
-                 img_reshape = image[np.newaxis,...]
-                 prediction = model.predict(img_reshape)
-                 return prediction
-                 #@st.cache(suppress_st_warning=True,allow_output_mutation=True)
-        @st.cache
         def load_model():
             model = tf.keras.models.load_model('my_model2.h5')
             return model
