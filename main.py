@@ -11,15 +11,22 @@ names = [user["name"]for user in users]
 hashed_passwords = [user["password"]for user in users]
 
 #test
-credentials = {
-        "usernames":{
-            "rishwin":{
-                "name":"rishwin r kanth",
-                "password":"$2b$12$uQkEYgDG4Wa46R8K5smYA.iWnMg.Hedx2WSM7UFqYYEnLSx3R57cW"
-                },
+#credentials = {
+  #      "usernames":{
+#            "rishwin":{
+  #              "name":"rishwin r kanth",
+  #              "password":"$2b$12$uQkEYgDG4Wa46R8K5smYA.iWnMg.Hedx2WSM7UFqYYEnLSx3R57cW"
+ #               },
             
-            }
-        }
+ #           }
+   #     }
+credentials = {"usernames":{}}
+
+for un, name, pw in zip(usernames, names, passwords):
+    user_dict = {"name":name,"password":pw}
+    credentials["usernames"].update({un:user_dict})
+
+authenticator = stauth.Authenticate(credentials, "app_home", "auth", cookie_expiry_days=30)
 
 #sidebar
 #sign up
